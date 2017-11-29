@@ -24,7 +24,7 @@ public class PDF2ImageExample {
 
     private static final String PDF = "src/main/resources/ballistic.pdf";
     private static final String JPG = "http://cdn2.baeldung.netdna-cdn.com/wp-content/uploads/2016/05/baeldung-rest-widget-main-1.2.0";
-    private static final String GIF = "https://media.giphy.com/media/l3V0x6kdXUW9M4ONq/giphy";
+
 
     public static void main(String[] args){
 
@@ -33,7 +33,6 @@ public class PDF2ImageExample {
             generateImageFromPDF(PDF, "jpeg");
             generateImageFromPDF(PDF, "gif");
             generatePDFFromImage(JPG, "jpg");
-            generatePDFFromImage(GIF, "gif");
         } catch (IOException | DocumentException  e) {
             e.printStackTrace();
         }
