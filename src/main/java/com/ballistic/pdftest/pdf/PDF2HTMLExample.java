@@ -5,7 +5,6 @@ import com.itextpdf.tool.xml.XMLWorkerHelper;
 import org.apache.pdfbox.pdmodel.PDDocument;
 
 import org.fit.pdfdom.PDFDomTree;
-import org.springframework.core.io.ClassPathResource;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
