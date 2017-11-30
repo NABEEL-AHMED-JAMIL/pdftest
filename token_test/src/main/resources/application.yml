@@ -6,6 +6,25 @@ spring:
   profiles: default
   jmx.enabled: false
 
+---
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mydevgeek
+    username: root
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    show-sql: true
+    hibernate:
+       ddl-auto: update
+---
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /api-docs
+---
 example:
   scheduledJob:
     enabled: true

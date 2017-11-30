@@ -1,6 +1,8 @@
 package com.ballistic.token_test.service;
 
-import com.ballistic.token_test.dto.Comment;
+import com.ballistic.token_test.domain.dto.Comment;
+import com.ballistic.token_test.repository.CommentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 
@@ -23,6 +25,9 @@ import java.util.Random;
 @Component
 public class CommentPullerScheduledTask {
 
+    @Autowired
+    private CommentRepository commentRepository;
+
     private static final Logger log = LoggerFactory.getLogger(CommentPullerScheduledTask.class);
 
     // default it true but here we change the value as flase
@@ -42,15 +47,15 @@ public class CommentPullerScheduledTask {
             if(!scheduledJobEnabled){
                 return;
             }
-            int min = 1;
-            int max = 500;
-
+            Integer min = 1;
+            Integer max = commentRepository.getTotalComment();
+            // "http://jsonplaceholder.typicode.com/comments/"
             Random random = new Random();
-            int id = random.nextInt((max-min)+1)+ min;
+            Integer id = random.nextInt((max-min)+1)+ min;
             String outFileName = createDataFile(id);
             RestTemplate restTemplate = new RestTemplate();
             Comment comment = restTemplate.getForObject
-                    ("http://jsonplaceholder.typicode.com/comments/" + id, Comment.class);
+                    ("http://localhost:8080//api/v1/" + id, Comment.class);
             log.info("Pulled comment #" + id + " at " + dateFormat.format(new Date()));
             log.info("Writing to " + outFileName);
 
