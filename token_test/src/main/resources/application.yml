@@ -5,19 +5,38 @@ spring:
 spring:
   profiles: default
   jmx.enabled: false
-
+---
+# suppress inspection "UnusedProperty" for whole file
+logging:
+  level:
+    org:
+      springframework: WARN
+      hibernate: WARN
+      com:
+        ballistic:
+          token_test: DEBUG
 ---
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/mydevgeek
-    username: root
-    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mydevgeekdb.cvrn4opans6v.ap-south-1.rds.amazonaws.com:3306/mydevgeek
+    username: token_test
+    password: medicsi_786
+    schema: classpath:/data/schema.sql
+    data: classpath:/data/data.sql
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 60000
+    validationQuery: SELECT 1
   jpa:
     database-platform: org.hibernate.dialect.MySQL5Dialect
     show-sql: true
     hibernate:
        ddl-auto: update
+  freemarker:
+    template-loader-path: /WEB-INF/ftl
+    expose-request-attributes: true
+    expose-spring-macro-helpers: true
+
 ---
 springfox:
   documentation:
@@ -27,7 +46,9 @@ springfox:
 ---
 example:
   scheduledJob:
-    enabled: true
+    enabled: false
+    # change to true during api call button
   incoming:
     comments:
       dir: E:/token_test/comments
+

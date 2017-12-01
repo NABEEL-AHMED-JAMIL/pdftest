@@ -8,9 +8,7 @@ import com.ballistic.token_test.vo.CommentVO;
 import com.ballistic.token_test.vo.CreateCommentVO;
 import com.ballistic.token_test.vo.UpdateCommentVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -55,5 +53,20 @@ public class CommentController implements ICommentController{
     @Override
     public void delete(@PathVariable("id") Integer id) {
         iCommentService.deleteComment(id);
+    }
+
+
+    public String method7(@PathVariable("id") int id) {
+        return "method7 with id=" + id;
+    }
+
+
+    public String method8(@PathVariable("id") long id, @PathVariable("name") String name){
+        return "method8 with id= "+id+" and name="+name;
+    }
+
+    @RequestMapping(value="/method9")
+    public String method9(@RequestParam("id") int id){
+        return "method9 with id= "+id;
     }
 }

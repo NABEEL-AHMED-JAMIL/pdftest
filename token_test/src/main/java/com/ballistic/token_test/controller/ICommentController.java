@@ -41,5 +41,16 @@ public interface ICommentController {
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable("id") Integer id);
 
+    @ApiOperation(value = "Send ID In Method 7")
+    @RequestMapping(value="/method7/{id}", method = RequestMethod.GET)
+    public String method7(@PathVariable("id") int id);
+
+    @ApiOperation(value = "Send ID and Name In Method 8")
+    @RequestMapping(value="/method8/{id:[\\d]+}/{name}", method = RequestMethod.GET)
+    public String method8(@PathVariable("id") long id, @PathVariable("name") String name);
+
+    @ApiOperation(value = "Send ID In Method 9")
+    @RequestMapping(value="/method9", method = RequestMethod.GET)
+    public String method9(@RequestParam("id") int id);
 
 }

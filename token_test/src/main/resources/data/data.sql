@@ -1,4 +1,10 @@
+--
+-- Dumping data for table `user`
+--
 
+INSERT INTO user (id, email, password_hash, role)
+VALUES (1,'demo@localhost', '$2a$10$ebyC4Z5WtCXXc.HGDc1Yoe6CLFzcntFmfse6/pTj7CeDY5I05w16C', 'ADMIN');
+-- You can use: demo@localhost / demo
 --
 -- Dumping data for table `comment`
 --

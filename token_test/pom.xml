@@ -25,39 +25,44 @@
 	</properties>
 
 	<dependencies>
+		<!--mvc allow-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<!--mysql db-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>6.0.5</version>
         </dependency>
-
+		<!--boot allow rest-api-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-rest</artifactId>
         </dependency>
-
-        <!-- non-sql -->
+        <!-- non-sql-query-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-
+		<!--testing-dependency-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-test</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
-
+		<!---->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 		</dependency>
-
 		<!-- helps in serialization -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.datatype</groupId>
@@ -68,7 +73,6 @@
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-jsr310</artifactId>
 		</dependency>
-
         <!-- swagger-ui -->
         <dependency>
             <groupId>io.springfox</groupId>
@@ -84,7 +88,7 @@
             <scope>compile</scope>
         </dependency>
 
-    </dependencies>
+	</dependencies>
 
 	<build>
 		<plugins>
