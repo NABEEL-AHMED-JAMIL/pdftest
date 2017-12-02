@@ -14,7 +14,7 @@ import javax.validation.Valid;
 /**
  * Created by Nabeel on 11/30/2017.
  */
-@RequestMapping("/api/v1")
+@RequestMapping(value = "/api/v1")
 @Api(value="customer", description="Customer Operation handling")
 public interface ICommentController {
 

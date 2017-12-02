@@ -23,6 +23,16 @@ public class ExceptionHandlingController {
         return new ResponseEntity<ExceptionResponse>(response, HttpStatus.NOT_FOUND);
     }
 
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ExceptionResponse> illegalArgumentException(IllegalArgumentException ex) {
+        ExceptionResponse response = new ExceptionResponse();
+        response.setErrorCode(response.getErrorCode());
+        response.setErrorMessage(response.getErrorMessage());
+        return new ResponseEntity<ExceptionResponse>(response, HttpStatus.BAD_REQUEST);
+    }
+
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ExceptionResponse> invalidInput(MethodArgumentNotValidException ex) {
         BindingResult result = ex.getBindingResult();

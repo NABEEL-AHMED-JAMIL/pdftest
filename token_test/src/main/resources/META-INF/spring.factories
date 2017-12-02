@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration = com.ballistic.token_test.amazon.s3.S3AutoConfiguration

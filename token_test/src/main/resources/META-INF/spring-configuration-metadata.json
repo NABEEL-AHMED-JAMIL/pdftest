@@ -1,0 +1,9 @@
+{
+  "groups": [
+    {
+      "name": "amazon",
+      "type": "com.ballistic.token_test.amazon.s3.AmazonProperties",
+      "sourceType": "com.ballistic.token_test.amazon.s3.AmazonProperties"
+    }
+  ]
+}
