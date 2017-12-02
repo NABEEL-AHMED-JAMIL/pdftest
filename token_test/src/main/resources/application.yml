@@ -22,8 +22,8 @@ spring:
     url: jdbc:mysql://mydevgeekdb.cvrn4opans6v.ap-south-1.rds.amazonaws.com:3306/mydevgeek
     username: token_test
     password: medicsi_786
-    schema: classpath:/data/schema.sql
-    data: classpath:/data/data.sql
+#    schema: classpath:/data/schema.sql
+#    data: classpath:/data/data.sql
     testWhileIdle: true
     timeBetweenEvictionRunsMillis: 60000
     validationQuery: SELECT 1
@@ -32,10 +32,6 @@ spring:
     show-sql: true
     hibernate:
        ddl-auto: update
-  freemarker:
-    template-loader-path: /WEB-INF/ftl
-    expose-request-attributes: true
-    expose-spring-macro-helpers: true
 
 ---
 springfox:
@@ -46,7 +42,7 @@ springfox:
 ---
 example:
   scheduledJob:
-    enabled: false
+    enabled: true
     # change to true during api call button
   incoming:
     comments:

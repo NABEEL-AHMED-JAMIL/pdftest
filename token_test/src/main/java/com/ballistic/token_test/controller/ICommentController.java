@@ -51,6 +51,6 @@ public interface ICommentController {
 
     @ApiOperation(value = "Send ID In Method 9")
     @RequestMapping(value="/method9", method = RequestMethod.GET)
-    public String method9(@RequestParam("id") int id);
+    public String method9(@RequestParam(name = "id", required = false, defaultValue = "1") int id);
 
 }

@@ -40,7 +40,7 @@ public class CommentPullerScheduledTask {
 
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
-    @Scheduled(fixedRate = 30000)
+    @Scheduled(fixedRate = 300)
     public void pullRandomComment(){
         try {
 
