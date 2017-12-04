@@ -8,7 +8,49 @@ import java.util.Set;
 /**
  * Created by Nabeel on 12/1/2017.
  */
-public class TestExtend {
+public class TestExtend<T, O, R> {
+
+    private T t;
+    private O o;
+    private R r;
+
+
+    public TestExtend(T t, O o, R r) {
+        this.t = t;
+        this.o = o;
+        this.r = r;
+    }
+
+    public T getT() { return t; }
+
+    public void setT(T t) { this.t = t; }
+
+    public O getO() { return o; }
+
+    public void setO(O o) { this.o = o; }
+
+    public R getR() { return r; }
+
+    public void setR(R r) { this.r = r; }
+
+
+    public static class Nabeel<A> {
+       private A a;
+
+        public Nabeel(A a) {
+            this.a = a;
+        }
+
+        public A getA() { return a; }
+
+        public void setA(A a) { this.a = a; }
+
+        @Override
+        public String toString() {
+            return "Nabeel{" + "a=" + a + '}';
+        }
+
+    }
 
     public static void main(String[] args){
         Set<User> users = getUsers();
@@ -83,11 +125,7 @@ public class TestExtend {
 
         @Override
         public String toString() {
-            return "User{" +
-                    "id=" + id +
-                    ", name='" + name + '\'' +
-                    ", email='" + email + '\'' +
-                    '}';
+            return "User{" + "id=" + id + ", name='" + name + '\'' + ", email='" + email + '\'' + '}';
         }
     }
 }

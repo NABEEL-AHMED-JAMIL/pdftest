@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 /**
- * Created by Nabeel on 12/2/2017.
+ * @author  Nabeel on 12/2/2017.
  */
 @Configurable
 @ConfigurationProperties(prefix = "amazon")

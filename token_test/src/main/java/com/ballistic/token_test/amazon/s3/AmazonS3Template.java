@@ -16,7 +16,7 @@ import java.io.File;
 import java.util.Date;
 
 /**
- * Created by Nabeel on 12/2/2017.
+ * @author  Nabeel on 12/2/2017.
  */
 @Component
 public class AmazonS3Template {

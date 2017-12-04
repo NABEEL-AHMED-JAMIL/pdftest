@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by Nabeel on 12/2/2017.
+ * @author Nabeel on 12/2/2017.
  */
 @Component
 @ConditionalOnMissingBean(AmazonS3Template.class)
