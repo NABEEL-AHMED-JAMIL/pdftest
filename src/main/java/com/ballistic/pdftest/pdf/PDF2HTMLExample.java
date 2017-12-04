@@ -16,7 +16,7 @@ import com.itextpdf.text.DocumentException;
  */
 public class PDF2HTMLExample {
 
-    private static final String PDF = "src/main/resources/ballistic.pdf";
+    private static final String PDF = "src/main/resources/Nabeel Ahmad.pdf";
     private static final String HTML = "src/main/resources/ballistic.html";
 
     public static void main(String[] args){
@@ -35,7 +35,7 @@ public class PDF2HTMLExample {
     private static void generateHTMLFromPdf(final String filename) throws ParserConfigurationException, IOException {
         PDDocument pdf = PDDocument.load(new File (filename));
         PDFDomTree parser = new PDFDomTree();
-        Writer output = new PrintWriter("src/output/ballistic.html", "utf-8");
+        Writer output = new PrintWriter("src/output/Nabeel Ahmad.html", "utf-8");
         parser.writeText(pdf, output);
         output.close();
         if(pdf != null){
