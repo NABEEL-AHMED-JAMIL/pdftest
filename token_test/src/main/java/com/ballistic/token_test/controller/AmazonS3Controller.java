@@ -56,7 +56,7 @@ public class AmazonS3Controller {
 
     }
 
-    @ApiOperation(value = "Handle File Upload On S3.....", response = CommentVO.class)
+    @ApiOperation(value = "Handle File Upload On S3.....", response = String.class)
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     public @ResponseBody String handleFileUpload(@RequestParam("name") String name,
                                                  @RequestParam("file") MultipartFile file) {

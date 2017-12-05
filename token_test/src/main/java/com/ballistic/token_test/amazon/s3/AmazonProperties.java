@@ -1,5 +1,7 @@
 package com.ballistic.token_test.amazon.s3;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
@@ -10,6 +12,8 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @Configurable
 @ConfigurationProperties(prefix = "amazon")
 public class AmazonProperties {
+
+    protected Logger logger = LoggerFactory.getLogger(getClass());
 
     @NestedConfigurationProperty
     private Aws aws;
@@ -31,7 +35,10 @@ public class AmazonProperties {
      * @param aws a property group fro AWS configuration
      *
      * */
-    public void setAws(Aws aws) { this.aws = aws; }
+    public void setAws(Aws aws) {
+        this.logger.info("Setting the Value of AWS");
+        this.aws = aws;
+    }
 
     /**
      * A property group for Amazon Web Service (AWS) configuration
@@ -47,13 +54,18 @@ public class AmazonProperties {
      * @param s3 a property group fro AWS configuration
      *
      * */
-    public void setS3(S3 s3) { this.s3 = s3; }
+    public void setS3(S3 s3) {
+        this.logger.info("Setting the Value of S3");
+        this.s3 = s3;
+    }
 
 
     /**
      * A property group for Amazon Web Service (AWS) configurations
      */
     public static class Aws {
+
+        protected Logger logger = LoggerFactory.getLogger(getClass());
 
         private String accessKeyId;
         private String accessKeySecret;
@@ -96,6 +108,8 @@ public class AmazonProperties {
      * A property group for Amazon Web Service (AWS) configurations
      */
     public static class S3 {
+
+        protected Logger logger = LoggerFactory.getLogger(getClass());
 
         private String defaultBucket;
 

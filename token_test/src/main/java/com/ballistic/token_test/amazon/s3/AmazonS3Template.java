@@ -4,12 +4,15 @@ import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.auth.BasicSessionCredentials;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
+import com.amazonaws.services.s3.model.DeleteObjectRequest;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.PutObjectResult;
 import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.services.securitytoken.AWSSecurityTokenServiceClient;
 import com.amazonaws.services.securitytoken.model.Credentials;
 import com.amazonaws.services.securitytoken.model.GetSessionTokenRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
@@ -21,11 +24,14 @@ import java.util.Date;
 @Component
 public class AmazonS3Template {
 
+    protected Logger logger = LoggerFactory.getLogger(getClass());
+
     private String defaultBucket;
     private String accessKeyId;
     private String accessKeySecret;
     private Credentials sessionCredentials;
 
+    public AmazonS3Template() {}
 
     /**
      * Create a new instance of the {@link AmazonS3Template} with the bucket name and access credentials
@@ -36,6 +42,9 @@ public class AmazonS3Template {
      *
      */
     public AmazonS3Template(String defaultBucket, String accessKeyId, String accessKeySecret) {
+
+        this.logger.info("bean Init.........");
+
         this.defaultBucket = defaultBucket;
         this.accessKeyId = accessKeyId;
         this.accessKeySecret = accessKeySecret;
@@ -52,6 +61,17 @@ public class AmazonS3Template {
     public PutObjectResult save(String key, File file) {
         return getAmazonS3Client().putObject(new PutObjectRequest(defaultBucket, key, file));
     }
+
+    /**
+     * Get a file using the authenticated session credentials
+     *
+     * @param key is the key of the file in the bucket that should be retrieved
+     * @return an instance of {@link S3Object} containing the file from S3
+     */
+    public void delete(String key) {
+        getAmazonS3Client().deleteObject(new DeleteObjectRequest(defaultBucket, key));
+    }
+
 
     /**
      * Get a file using the authenticated session credentials

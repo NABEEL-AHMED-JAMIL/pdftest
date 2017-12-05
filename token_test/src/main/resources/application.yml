@@ -42,7 +42,7 @@ springfox:
 ---
 example:
   scheduledJob:
-    enabled: true
+    enabled: false
     # change to true during api call button
   incoming:
     comments:

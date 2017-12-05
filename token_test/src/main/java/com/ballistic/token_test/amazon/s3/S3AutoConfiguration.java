@@ -1,5 +1,7 @@
 package com.ballistic.token_test.amazon.s3;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -13,6 +15,8 @@ import org.springframework.stereotype.Component;
 @ConditionalOnMissingBean(AmazonS3Template.class)
 @EnableConfigurationProperties(AmazonProperties.class)
 public class S3AutoConfiguration {
+
+    protected Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private AmazonProperties amazonProperties;
