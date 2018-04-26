@@ -1,7 +1,9 @@
 package com.ballistic.web.controller;
 
+import com.ballistic.configuration.PropertiesConfig;
 import com.ballistic.domain.Hotel;
 import com.ballistic.persistence.HotalRepository;
+import com.ballistic.service.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,10 +16,11 @@ import java.util.List;
 public class HotelController {
 
     @Autowired
-    private HotalRepository hotalRepository;
+    private HotelService hotelService;
 
-    @RequestMapping("/hotels")
-    public List<Hotel> getHotelList() {
-        return hotalRepository.findAll();
+    @RequestMapping("/hotel")
+    public Hotel getHotel() {
+        return hotelService.getHotel();
     }
+
 }

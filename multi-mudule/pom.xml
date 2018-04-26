@@ -6,23 +6,28 @@
 	<groupId>com.ballistic</groupId>
 	<artifactId>multi-mudule</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<modules>
-		<module>domain</module>
-		<module>persistence</module>
-		<module>web</module>
-	</modules>
+
 	<!--change the packaging 'pom'-->
 	<packaging>pom</packaging>
-
 	<name>multi-mudule</name>
 	<description>Demo project for Spring Boot</description>
 
+	<!-- lookup parent from repository -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.9.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
+
+	<modules>
+		<module>domain</module>
+		<module>persistence</module>
+		<module>service</module>
+		<module>web</module>
+		<module>api</module>
+
+	</modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -33,12 +38,21 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

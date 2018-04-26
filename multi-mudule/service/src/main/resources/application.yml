@@ -1,0 +1,8 @@
+amazon:
+  s3:
+    default-bucket: mydevgeek
+  aws:
+    access-key-id: AKIAJ37RKR34XMXVRM7Q
+    access-key-secret: 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
+multipart.maxFileSize: 5MB
+multipart.maxRequestSize: 5MB
