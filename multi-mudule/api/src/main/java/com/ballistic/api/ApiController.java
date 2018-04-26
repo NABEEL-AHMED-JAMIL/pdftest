@@ -16,7 +16,7 @@ public class ApiController {
     @Autowired
     private HotalRepository hotalRepository;
 
-    @RequestMapping("/hotel/api")
+    @RequestMapping("/hotel/api/3")
     public List<Hotel> getHotelList() {
         return hotalRepository.findAll();
     }
